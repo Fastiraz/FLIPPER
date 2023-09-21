@@ -1,5 +1,5 @@
 REM Author: Fastiraz
-REM Description: Extracts chrome credentials with a payload of 1260 characters.
+REM Description: Extracts chrome credentials with a payload of 339 characters.
 REM Version:	1.0
 REM Category:	Exfiltration
 DELAY 750
